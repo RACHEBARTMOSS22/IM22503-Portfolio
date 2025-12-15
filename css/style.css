@@ -1,0 +1,580 @@
+/* -------------------------------------------------------------------
+| 1. GLOBAL STYLES & TYPOGRAPHY
+| Controls fonts, body, and overall container sizing.
+------------------------------------------------------------------- */
+body {
+    font-family: 'Rajdhani', sans-serif;
+    background-color: #ffffff; /* Clean white background */
+    color: #333333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+h1, h2, h3 {
+    font-weight: 700;
+    color: #2c3e50; /* Dark primary color for headings */
+    margin-top: 0;
+}
+/* Main Content Wrapper - Centers content like your inspiration */
+.content-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
+}
+section {
+    padding: 60px 0; /* Increased padding for more breathing room */
+    border-bottom: 1px solid #f0f0f0; /* Softer divider */
+}
+/* -------------------------------------------------------------------
+| 2. HEADER & NAVIGATION STYLES (Cohesive Look)
+------------------------------------------------------------------- */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #0D5EAF; /* Dark blue band at the top */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+.logo a {
+    font-size: 1.8rem; /* Slightly larger for prominence */
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 1.5px;
+}
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+.main-nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    margin-left: 30px;
+    padding: 5px 0;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+.main-nav ul li a:hover {
+    color: #a9d1f7; /* Lighter blue accent on hover for consistency */
+    border-bottom: 2px solid #a9d1f7;
+}
+/* -------------------------------------------------------------------
+| 3. HOMEPAGE SPECIFIC LAYOUT (index.html)
+| FIX APPLIED: Stacking order is now: Gray BG (Base) -> Text (1) -> Image (2)
+------------------------------------------------------------------- */
+.intro-section {
+    position: relative;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-bottom: 65%; /* Reserve vertical space (65% is safe) */
+    border-bottom: 1px solid #f0f0f0;
+    background-color: #f5f5f5; /* Lighter gray background for subtlety */
+}
+.intro-text {
+    width: 60%;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 100px 20px 100px 40px; /* Increased padding for air */
+    background-color: #ffffff;
+}
+.profile-photo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    width: 45%;
+    height: 100%;
+    object-fit: contain;
+    border: none;
+    border-radius: 0;
+    box-shadow: -8px 0 12px rgba(0, 0, 0, 0.15); /* Softer shadow */
+    transition: opacity 0.4s ease, transform 0.4s ease; /* Added subtle transform */
+}
+.profile-photo:hover {
+    transform: translateX(-5px); /* Slight shift on hover */
+    opacity: 0.95;
+}
+/* Call to Action Button - (No changes needed here) */
+.cta-button {
+    display: inline-block;
+    background-color: #0D5EAF;
+    color: #FFFFFF;
+    padding: 14px 30px; /* Slightly larger for professionalism */
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.cta-button:hover {
+    background-color: #084a8e; /* Darker blue on hover */
+    transform: translateY(-2px); /* Lift effect */
+}
+/* -------------------------------------------------------------------
+| 4. BIODATA & TIMETABLE STYLING
+------------------------------------------------------------------- */
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px; /* Increased margin */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle table shadow */
+}
+
+/* Row Styling (Set position for shake animation) */
+.schedule-table tr {
+    position: relative; /* Essential for shake animation */
+    transition: background-color 0.3s ease;
+}
+
+.schedule-table th, .schedule-table td {
+    padding: 14px; /* Increased padding */
+    border: 1px solid #e0e0e0; /* Lighter borders */
+    text-align: left;
+    transition: color 0.6s ease; /* Added transition for text color */
+}
+
+.schedule-table th {
+    background-color: #0D5EAF;
+    color: white;
+    font-weight: 600; /* Bolder for emphasis */
+}
+
+.schedule-table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Zebra striping */
+}
+
+/* Hover Effect: Apply shake animation and final color change */
+.schedule-table tr:hover {
+    /* Apply shake animation and dark teal flash */
+    animation: shake-flash 0.6s ease-in-out forwards;
+    
+    /* Set final background color to dark blue (#0D5EAF) */
+    background-color: #0D5EAF; 
+}
+
+/* Hover Effect: Change text color inside the row */
+.schedule-table tr:hover th,
+.schedule-table tr:hover td {
+    /* Apply text color animation (White text during Dark Teal/Dark Blue phase) */
+    animation: text-flash 0.6s ease-in-out forwards; 
+    color: #ffffff; /* Final text color */
+}
+
+/* -------------------------------------------------------------------
+| 5. PORTFOLIO & SKILLS STYLING
+------------------------------------------------------------------- */
+.skill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px; /* Increased gap for better spacing */
+    margin-top: 40px;
+}
+.skill-item {
+    /* FIX 1: Add color transition for smooth font change and border */
+    position: relative; /* Essential for shake animation */
+    transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; 
+    
+    padding: 25px; /* Increased padding */
+    border: 1px solid #e0e0e0; /* Lighter border */
+    border-radius: 8px; /* Softer corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Deeper shadow */
+    
+    /* Ensure the default font color is black/dark */
+    color: #333333; 
+}
+
+/* Hover Effect for Skill Box - Includes subtle flash */
+.skill-item:hover {
+    /* FIX 1: Apply Shake (White -> Dark Teal Flash) */
+    animation: shake-flash 0.6s ease-in-out forwards;
+    
+    /* FIX 2: Set final state color (Dark Blue) */
+    background-color: #0D5EAF; 
+    
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1), 0 0 10px rgba(13, 94, 175, 0.8); /* Subtle blue glow/flash */
+    transform: translateY(-5px); /* Lift on hover */
+    border-color: #a9d1f7; 
+}
+
+/* Ensure the headings and paragraphs inside the hovered box also turn white */
+.skill-item:hover h3, 
+.skill-item:hover p {
+    /* FIX: Apply text color animation (White text during Dark Teal/Dark Blue phase) */
+    animation: text-flash 0.6s ease-in-out forwards;
+    color: #ffffff; /* Final hover color */
+}
+
+/* NEW RULE: Styling for small project thumbnails inside skill-item */
+.project-thumb {
+    width: 100%; /* Take up the full width of the skill-item box */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 200px; /* Cap the height so the images don't dominate */
+    object-fit: cover; /* Ensures image fills the area without whitespace */
+    border-radius: 4px; /* Slight rounding to match item corners */
+    margin-bottom: 15px; /* Space between image and the H3 heading */
+}
+
+/* -------------------------------------------------------------------
+| 6. VIDEO & FORM STYLING (Multimedia & Form Requirements)
+------------------------------------------------------------------- */
+.video-wrapper {
+    max-width: 800px;
+    margin: 30px auto; /* Increased margin */
+    background-color: black;
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Clean edges */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.video-wrapper video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+/* -------------------------------------------------------------------
+| 6.1. COMMENT PAGE LAYOUT
+------------------------------------------------------------------- */
+.comment-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+/* Form Container */
+.feedback-form {
+    flex-basis: 60%; /* Form takes up 60% of width on large screen */
+    
+    padding: 30px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    position: relative; /* Essential for transform/shake */
+    background-color: #ffffff; /* Default white */
+    margin: 0; /* Reset margin for flex container */
+    width: 100%; /* Ensure it fills its flex basis */
+    
+    /* FIX: Initial state transition time (0.6s) to smooth the final color change */
+    transition: background-color 0.6s ease, box-shadow 0.3s ease, color 0.6s ease;
+}
+
+/* Contact Image Container */
+.contact-image-container {
+    flex-basis: 40%; /* Image takes up 40% of width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px; /* Align with top of form */
+}
+
+.contact-photo {
+    width: 100%;
+    max-width: 250px; 
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.social-links {
+    text-align: center;
+    padding-top: 10px;
+}
+.social-links p a {
+    color: #0D5EAF;
+    text-decoration: none;
+    font-weight: 600;
+}
+.social-links p a:hover {
+    text-decoration: underline;
+}
+
+
+/* Hover: Trigger shake (white to dark teal flash) and set final color (dark blue) */
+.feedback-form:hover {
+    /* Step 1: Apply Shake (White -> Dark Teal Flash) */
+    animation: shake-flash 0.6s ease-in-out forwards;
+    
+    /* Step 2: Set final state color after animation finishes (Dark Blue) */
+    background-color: #0D5EAF; 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover-specific text styling (MUST be handled by transition/animation) */
+.feedback-form:hover h1,
+.feedback-form:hover h2,
+.feedback-form:hover h3,
+.feedback-form:hover label {
+    /* Apply text color animation (White text during Dark Teal/Dark Blue phase) */
+    animation: text-flash 0.6s ease-in-out forwards; 
+    color: #ffffff; /* Final hover color */
+}
+
+/* Input/Textarea Styling (MUST REMAIN WHITE/LIGHT) */
+.form-group {
+    margin-bottom: 25px;
+}
+.feedback-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333333; /* Default text color */
+    transition: color 0.6s ease; 
+}
+.feedback-form input[type="text"],
+.feedback-form input[type="email"],
+.feedback-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    
+    /* FIX: Ensure inputs remain white background and dark text, ignoring parent background */
+    background-color: #ffffff; 
+    color: #333333;
+    transition: border-color 0.3s ease, box-shadow 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Focus Glow */
+.feedback-form input[type="text"]:focus,
+.feedback-form input[type="email"]:focus,
+.feedback-form textarea:focus {
+    border-color: #0D5EAF;
+    outline: none;
+    box-shadow: 0 0 8px rgba(13, 94, 175, 0.6);
+}
+
+/* Optional: Make the submit button match your brand */
+.feedback-form button,
+.feedback-form input[type="submit"] {
+    background-color: #0D5EAF;
+    color: white;
+    padding: 14px 30px; /* Using cta-button padding for consistency */
+    border: none;
+    border-radius: 44px; /* Added slight rounding */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.feedback-form:hover button,
+.feedback-form:hover input[type="submit"] {
+    background-color: #084a8e;
+}
+/* === END FORM STYLING === */
+
+
+/* -------------------------------------------------------------------
+| 7. FOOTER STYLES
+------------------------------------------------------------------- */
+.site-footer {
+    text-align: center;
+    padding: 30px; /* Increased padding */
+    background-color: #0D5EAF; /* Match header blue for cohesion */
+    color: #ffffff; /* White text for contrast */
+    font-size: 0.9rem;
+}
+/* -------------------------------------------------------------------
+| 8. RESPONSIVE MEDIA QUERIES (Crucial for 4 Marks in Responsiveness)
+------------------------------------------------------------------- */
+/* Tablet and smaller desktops */
+@media (max-width: 885px) {
+    .intro-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        padding-bottom: 50px;
+        padding-top: 50px;
+        position: static;
+        background-color: transparent;
+        height: auto;
+    }
+    .intro-text {
+        width: 100%;
+        padding: 0;
+        position: static;
+        background-color: transparent;
+    }
+    .profile-photo {
+        position: static;
+        width: 80%;
+        height: auto;
+        margin: 20px auto;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        opacity: 1;
+        object-fit: contain;
+    }
+    .main-header {
+        flex-direction: column;
+    }
+    .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    .main-nav ul li a {
+        margin: 0 10px;
+        padding: 5px;
+    }
+    /* FIX: Comment layout stacked on small screens */
+    .comment-layout {
+        flex-direction: column; /* Stack vertically on smaller screens */
+        align-items: center;
+    }
+    .feedback-form {
+        flex-basis: 100%; /* Form takes full width */
+        max-width: 600px; /* Restrict max width */
+        margin-bottom: 40px;
+    }
+    .contact-image-container {
+        flex-basis: 100%; /* Image takes full width space */
+        padding-top: 0;
+    }
+}
+/* Mobile Devices */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+    .main-header {
+        padding: 15px 20px;
+    }
+    .schedule-table, .feedback-form {
+        overflow-x: auto;
+        display: block;
+        width: 100%;
+    }
+    .schedule-table {
+        min-width: 500px;
+    }
+    .skill-grid {
+        grid-template-columns: 1fr;
+    }
+    section {
+        padding: 40px 0; /* Adjusted for mobile */
+    }
+}
+
+/* -------------------------------------------------------------------
+| 9. LIGHTBOX/MODAL STYLING (Pure CSS Solution)
+------------------------------------------------------------------- */
+
+.lightbox {
+    /* FIX 1: Hides the modal by default */
+    visibility: hidden; 
+    opacity: 0;
+    
+    /* Position fixed to cover the entire viewport */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Dark overlay background */
+    background: rgba(0, 0, 0, 0.9);
+    
+    /* Ensure it is always on top of everything */
+    z-index: 9999; 
+    
+    /* Smooth transition for fade effect */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    
+    /* Flexbox for centering the content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* FIX 2: State when the modal link is clicked (using the :target pseudo-class) */
+.lightbox:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-content {
+    max-width: 90vw; /* Take up 90% of viewport width */
+    max-height: 90vh; /* Take up 90% of viewport height */
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+    text-align: center;
+}
+
+.modal-content img {
+    max-width: 100%;
+    max-height: 75vh; /* Ensure image fits well within the modal box */
+    height: auto;
+    display: block;
+}
+
+/* Close button style */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: 700;
+    transition: color 0.2s ease;
+    z-index: 10000;
+}
+
+.close-btn:hover {
+    color: #0D5EAF;
+}
+
+.caption {
+    padding-top: 10px;
+    color: #333;
+}
+
+/* -------------------------------------------------------------------
+| 10. KEYFRAMES FOR ANIMATIONS
+------------------------------------------------------------------- */
+
+/* 1. Background Shake and Color Change (Duration 0.6s) */
+@keyframes shake-flash {
+    /* Shake starts and flashes Dark Teal (#0d94af) before landing on Dark Blue (#0D5EAF) */
+    0% { transform: translateX(0); background-color: #ffffff; } /* Start at default white */
+    
+    /* Dark Teal Flash phase */
+    10% { transform: translateX(-8px); background-color: #0d94af; } 
+    20% { transform: translateX(8px);  background-color: #0d94af; }
+    30% { transform: translateX(-8px); background-color: #0d94af; }
+    40% { transform: translateX(8px);  background-color: #0d94af; }
+    50% { transform: translateX(-4px); background-color: #0d94af; } 
+    
+    /* Form snaps back to center and transitions to FINAL Dark Blue */
+    100% {
+        transform: translateX(0);
+        background-color: #0D5EAF; 
+    }
+}
+
+/* 2. Text Color Change (White text during the Dark background) (Duration 0.6s) */
+@keyframes text-flash {
+    /* Text starts at default color */
+    0% { color: #333333; } 
+    
+    /* Dark Teal Flash phase needs white text for visibility */
+    10% { color: #ffffff; } 
+    20% { color: #ffffff; }
+    30% { color: #ffffff; }
+    40% { color: #ffffff; }
+    50% { color: #ffffff; }
+    
+    /* Text remains white as background transitions to dark blue */
+    100% { color: #ffffff; }
+}

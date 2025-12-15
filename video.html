@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Video | Personal Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio (Height is 56.25% of the Width) */
+            height: 0;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo"><a href="index.html">IM22503 Portfolio</a></div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html"><strong>Home</strong></a></li>
+                <li><a href="biodata.html"><strong>Biodata</strong></a></li>
+                <li><a href="portfolio.html"><strong>Portfolio</strong></a></li>
+                <li><a href="video.html"><strong>Video</strong></a></li>
+                <li><a href="comments.html"><strong>Comments</strong></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content-container">
+        <section class="video-section">
+            <h1>Multimedia Integration Showcase</h1>
+            <p>This video demonstrates my skills in non-linear editing (NLE), sequencing, and post-production techniques learned during the multimedia course.</p>
+
+            <div class="video-wrapper">
+                <div class="video-container">
+                    <iframe 
+                        width="100%" 
+                        height="100%" 
+                        src="https://youtu.be/2V3gMm7WGGs" 
+                        title="Multimedia Project Video" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen
+                    ></iframe>
+                </div>
+            </div>
+            
+            <h2>Project Overview</h2>
+            <p>The project aimed to convey a narrative using dynamic cuts and sound design. Key techniques utilized include color grading, pacing, and aligning visual cues with audio to enhance the emotional impact for the viewer.</p>
+        </section>
+    </main>
+
+    <footer class="site-footer"><p>&copy; 2025 IM22503 Assignment</p></footer>
+</body>
+</html>
