@@ -578,3 +578,22 @@ section {
     /* Text remains white as background transitions to dark blue */
     100% { color: #ffffff; }
 }
+
+/* -------------------------------------------------------------------
+| 11. JAVASCRIPT ANIMATION STYLES (Scroll-Based Fade-In)
+| These styles are controlled by 'script.js' via the 'active' class.
+------------------------------------------------------------------- */
+
+/* Initial state: Hidden and moved slightly down */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    /* Transition applied to both properties for a smooth fade and slide */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; 
+}
+
+/* Final state: Visible and in original position, applied by JavaScript */
+.animate-on-scroll.active {
+    opacity: 1;
+    transform: translateY(0);
+}
